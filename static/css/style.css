@@ -35,9 +35,17 @@ body {
 tt {
     background-color: #f2f2f2;
     color: #444;
-    font-size: 14px;
 }
 
 .donation {
-    float: right;
+    font-size: 2vw;
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 992px) {
+    .donation {
+        float: right;
+        font-size: 14px; 
+    }
 }
