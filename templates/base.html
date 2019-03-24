@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light nav-content navbar-custom">
+            <a class="navbar-brand" href="/">Quick Ses</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" id='home' href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id='about' href="/">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="content">
+
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+        </div>
+        {% endfor %}
+      <hr>
+        {% block page_content %}{% endblock %}
+    </div>
+
+    <div class="donation">
+    <h3>Donations<a class="headerlink" href="#donations" title="Permalink to this headline">¶</a></h3>
+    <ul class="simple">
+        <li>Bitcoin <tt class="docutils literal"><span class="pre">1KAwf9252Qeeh2Zjb7Y5wZfxw2Zxe4QYwC</span></tt></li>
+        <li>Ether <tt class="docutils literal"><span class="pre">0xf4e8E9f505a6730E1984174a56e5f3F54C33128E</span></tt></li>
+        <li>Bitcoin Cash <tt class="docutils literal"><span class="pre">qq8cugvz59ppswn0mtc0pd8nr7dh9m0xpvm8ey29ya</span></tt></li>
+        <li>Stellar <tt class="docutils literal"><span class="pre">GBJSGIFK2QFXCE5IWWYARRVFHP2MHHAXDEPH5XMX2ANTE33JZHVLYEF2</span></tt></li>
+        </ul>
+      </div>
+
+        <div class="footer">
+          <div class="copyright">
+            <p>Copyright (c) 2016-<span id="cyear"></span>. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+<script type="text/javascript">
+    var d = new Date();
+    document.getElementById("cyear").innerHTML = d.getFullYear();
+</script>
+
+<script>
+  $(document).ready(function () {
+  $("#{{request.endpoint}}").addClass("active"); })
+</script>
+</body>
+</html><!DOCTYPE html>
