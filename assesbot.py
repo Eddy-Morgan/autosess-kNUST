@@ -33,6 +33,9 @@ class Assess:
             login_data['__RequestVerificationToken'] = soup.find('input', attrs={'name':'__RequestVerificationToken'})['value']
             
             r = s.post(login_url, data = login_data, headers = headers )
+            soup = BeautifulSoup(r.content, 'html.parser')
+            if soup.find_all("div", {"class": "validation-summary-errors text-danger"}):
+                return "Error"
             url = 'https://apps.knust.edu.gh/students/LecturerAssessment'
             r = s.get(url, headers = headers)
             soup = BeautifulSoup(r.content, 'html.parser')

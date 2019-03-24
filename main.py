@@ -8,6 +8,10 @@ app.secret_key = "kqeyu3jbkl3ygl73b7b383f2ih732kj.n328p'0;32p"
 def home():
     return render_template('home.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/assess', methods = ['GET','POST'])
 def submit_details():
     if request.method == 'POST':
@@ -19,7 +23,9 @@ def submit_details():
         if data == []:
             flash('There are no outstanding lecturers to be assessed.')
             return redirect(url_for('home'))
-        print(data)
+        if data == 'Error':
+            flash('The user name, password or studentid provided is incorrect.')
+            return redirect(url_for('home'))
         flash('Great! Your fucking Lecturers have been assessed')
         return redirect(url_for('success'))
     return redirect(url_for('home'))
