@@ -25,6 +25,7 @@ body {
 .footer {
     position: absolute;
     bottom: 0;
+    display: none;
 }
 
 .content {
@@ -50,6 +51,11 @@ tt {
     .footer p {
         font-size: 10px;
     }
+    .footer {
+        position: absolute;
+        bottom: 0;
+        display: block;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -62,6 +68,12 @@ tt {
     .content {
         margin-top: 1vh ;
         margin-bottom: 5vh;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        display: block;
     }
 
     .footer p {
