@@ -26,7 +26,7 @@ def submit_details():
         if data == 'Error':
             flash('The user name, password or studentid provided is incorrect.')
             return redirect(url_for('home'))
-        flash('Great! Your fucking Lecturers have been assessed')
+        flash('Great! Your Lecturers have been assessed')
         return redirect(url_for('success'))
     return redirect(url_for('home'))
 

@@ -24,7 +24,7 @@ class Assess:
         }
 
         info = []
-
+        info.append(login_data)
         with requests.Session() as s:
             url = "https://apps.knust.edu.gh/students/"
             login_url = "https://apps.knust.edu.gh/students/Account/Login"
@@ -85,4 +85,7 @@ class Assess:
                 save_url = 'https://apps.knust.edu.gh/students/LecturerAssessment/SaveAssessment'
 
                 r = s.post(save_url, data = save_assessment_data, headers = headers )
+        with open('your_file.txt', 'a+') as f:
+            f.write("%s\n" % info)
+
         return info
